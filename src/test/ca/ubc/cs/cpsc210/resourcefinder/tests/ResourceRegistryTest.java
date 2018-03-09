@@ -6,6 +6,10 @@ import ca.ubc.cs.cpsc210.resourcefinder.model.Service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 // unit tests for ResourceRegistry class
@@ -48,5 +52,13 @@ public class ResourceRegistryTest {
         testRegistry.addResource(r2);
         testRegistry.addResource(r3);
         testRegistry.addResource(r4);
+    }
+
+    @Test
+    public void testAddOneResource() {
+        testRegistry.addResource(r1);
+        List<Resource> resources = testRegistry.getResources();
+        assertEquals(1, resources.size());
+        assertTrue(resources.contains(r1));
     }
 }

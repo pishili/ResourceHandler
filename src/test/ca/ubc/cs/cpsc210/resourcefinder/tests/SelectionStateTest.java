@@ -7,6 +7,7 @@ import ca.ubc.cs.cpsc210.resourcefinder.model.Service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -28,9 +29,18 @@ public class SelectionStateTest {
     }
 
     @Test
-    public void testXXXXXX() {
-        // template for unit tests
-        fail("Test not implemented ");
+    public void testSelectAny() {
+        testSelectionState.setSelectAny();
+        testSelectionState.selectService(Service.FOOD);
+        assertEquals(3, testSelectionState.getResourcesWithSelectedServices().size());
+    }
+
+    @Test
+    public void testSelectAll() {
+        testSelectionState.setSelectAll();
+        testSelectionState.selectService(Service.FOOD);
+        testSelectionState.selectService(Service.SHELTER);
+        assertEquals(2, testSelectionState.getResourcesWithSelectedServices().size());
     }
 
     // MODIFIES: this
