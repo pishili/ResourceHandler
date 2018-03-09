@@ -43,7 +43,7 @@ public class SelectionState {
     // MODIFIES: this
     // EFFECTS: set selected services to given set of services
     public void setSelectedServices(Set<Service> selected) {
-        selected.addAll(selected);
+        this.selected.addAll(selected);
     }
 
     // EFFECTS: return set of resources corresponding to current selection;
